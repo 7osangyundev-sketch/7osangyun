@@ -1,0 +1,334 @@
+/* --- 기본 변수 및 초기화 --- */
+:root {
+    --primary-color: #2563eb; /* 포인트 색상 (파랑) */
+    --dark-color: #1e293b;    /* 짙은 배경색 */
+    --light-color: #f8fafc;   /* 밝은 배경색 */
+    --text-color: #334155;    /* 기본 글자색 */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- 헤더 & 네비게이션 --- */
+header {
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+nav {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* --- 메인 히어로 섹션 --- */
+#home {
+    height: 100vh; /* 화면 전체 높이 사용 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+    padding: 0 2rem;
+    padding-top: 60px; /* 헤더 높이만큼 여백 */
+}
+
+.profile-img {
+    width: 175px;        /* 원 전체 크기는 그대로 유지 */
+    height: 175px;
+    border-radius: 50%;
+    object-fit: cover;   
+    border: 1px solid white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-bottom: 1.5rem;
+
+    /* ▼▼▼ 아래 두 줄을 추가하세요 ▼▼▼ */
+    padding: 10px;           /* 숫자가 클수록 사진이 더 작아집니다 */
+    background-color: white; /* 사진과 테두리 사이의 여백 색상 */
+}
+
+#home h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+    word-break: keep-all; /* 단어 단위 줄바꿈 */
+}
+
+#home p {
+    font-size: 1.2rem;
+    color: #64748b;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    transition: background 0.3s;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #1d4ed8;
+}
+
+/* --- 공통 섹션 스타일 --- */
+section {
+    padding: 5rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    color: var(--dark-color);
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 4px;
+    background-color: var(--primary-color);
+    margin: 10px auto 0;
+}
+
+/* --- About 섹션 --- */
+.about-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: var(--light-color);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+/* --- About 섹션 이미지 스타일 추가 --- */
+.about-img {
+    display: block; /* 이미지를 블록 요소로 만들어 한 줄을 다 차지하게 함 */
+    max-width: 100%; /* 화면 너비보다 이미지가 크면 화면에 맞춤 (반응형) */
+    height: auto;    /* 비율 유지 */
+    margin: 0 auto 2rem auto; /* 상단0, 좌우자동(가운데정렬), 하단2rem 여백 */
+    border-radius: 15px; /* 모서리를 둥글게 (선택사항) */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* 부드러운 그림자 (선택사항) */
+    
+    /* 만약 사진 크기를 고정하고 싶다면 아래 주석을 풀고 크기를 지정하세요 */
+    /* width: 500px; */ 
+}
+
+/* --- Skills 섹션 --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.skill-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    font-weight: bold;
+    color: var(--primary-color);
+    transition: transform 0.2s;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* --- Projects 섹션 --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+    color: var(--dark-color);
+}
+
+/* --- 푸터 --- */
+footer {
+    background-color: var(--dark-color);
+    color: #cbd5e1;
+    text-align: center;
+    padding: 4rem 2rem;
+    margin-top: 4rem;
+}
+
+footer h2 {
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.copyright {
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    opacity: 0.7;
+}
+
+/* --- 모바일 반응형 --- */
+@media (max-width: 768px) {
+    #home h1 { font-size: 2rem; }
+    nav { padding: 1rem; }
+    .nav-links { 
+        display: none; /* 모바일에서는 메뉴 숨김 (추후 JS로 토글 기능 구현 필요) */
+    }
+    section { padding: 3rem 1.5rem; }
+}
+
+/* --- Certifications (자격증) 섹션 --- */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.cert-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+    
+    /* 좌우 배치를 위한 Flexbox 설정 */
+    display: flex;
+    justify-content: space-between; /* 양 끝으로 벌림 */
+    align-items: center;            /* 수직 중앙 정렬 */
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* 왼쪽에 파란색 강조 선 */
+.cert-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background-color: var(--primary-color);
+}
+
+/* --- 왼쪽 그룹 (이름 + 발행처) --- */
+.cert-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px; /* 강조 선과의 간격 */
+}
+
+.cert-card h3 {
+    font-size: 1.1rem;
+    color: var(--dark-color);
+    margin-bottom: 0.3rem; /* 이름과 발행처 사이 간격 */
+    line-height: 1.2;
+}
+
+.cert-issuer {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0; /* 불필요한 여백 제거 */
+}
+
+/* --- 오른쪽 그룹 (로고 + 날짜) --- */
+.cert-right {
+    display: flex;
+    flex-direction: column; /* 위아래 배치 */
+    align-items: flex-end;  /* 오른쪽 정렬 */
+    justify-content: center;
+    min-width: 80px; /* 날짜가 줄바꿈되지 않도록 최소 너비 확보 */
+}
+
+.cert-img {
+    width: 50px;   /* 로고 크기 */
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 0.5rem; /* 로고와 날짜 사이 간격 */
+}
+
+.cert-date {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    font-weight: 500;
+    text-align: right; /* 텍스트 우측 정렬 */
+    white-space: nowrap; /* 날짜 줄바꿈 방지 */
+}
